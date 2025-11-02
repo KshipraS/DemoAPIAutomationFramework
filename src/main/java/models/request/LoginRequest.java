@@ -1,3 +1,7 @@
+/*
+ * POJO Plain Old Java Object class
+ */
+
 package models.request;
 
 public class LoginRequest 
