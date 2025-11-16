@@ -1,9 +1,9 @@
 package util;
 
-import base.AuthService;
 import io.restassured.response.Response;
 import models.request.LoginRequest;
 import models.response.LoginResponse;
+import services.AuthService;
 
 public class Utility
 {

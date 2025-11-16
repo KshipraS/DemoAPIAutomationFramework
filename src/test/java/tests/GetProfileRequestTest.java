@@ -2,10 +2,10 @@ package tests;
 
 import org.testng.annotations.Test;
 
-import base.UserProfileManagementService;
 import io.restassured.response.Response;
 import models.response.LoginResponse;
 import models.response.UserProfileResponse;
+import services.UserProfileManagementService;
 import util.Utility;
 
 public class GetProfileRequestTest 
@@ -20,6 +20,7 @@ public class GetProfileRequestTest
 		Response response=userProfileManagementService.getProfile(loginResponse.getToken());
 		System.out.println("Response of getProfile operation----"+response.asPrettyString());
 		UserProfileResponse userProfileResponse=response.as(UserProfileResponse.class);
-		System.out.println(userProfileResponse.getFirstName());
+		System.out.println("First Name:"+ userProfileResponse.getFirstName());
+		
 	}
 }

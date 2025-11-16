@@ -1,6 +1,7 @@
 /**
  * This class acts as a wrapper for RestAssured. It is responsible for providing Base URI to all classes, 
  * creating the Request and handling the Response.
+ * Swagger: http://64.227.160.186:8080/swagger-ui/index.html
  */
 
 package base;
@@ -18,7 +19,7 @@ public class BaseService
 	private static final String BASE_URI="http://64.227.160.186:8080";
 	private RequestSpecification requestSpecification;
 	
-	static		// to call filters implementation
+	static		// to call filters implementation for printing request and response in logs
 	{
 		RestAssured.filters(new LoggingFilter());
 	}

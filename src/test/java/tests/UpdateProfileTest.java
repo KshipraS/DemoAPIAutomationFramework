@@ -3,12 +3,11 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import base.BaseService;
-import base.UserProfileManagementService;
 import io.restassured.response.Response;
 import models.request.UserProfileRequest;
 import models.response.LoginResponse;
 import models.response.UserProfileResponse;
+import services.UserProfileManagementService;
 import util.Utility;
 
 public class UpdateProfileTest

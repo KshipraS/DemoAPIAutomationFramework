@@ -1,5 +1,6 @@
-package base;
+package services;
 
+import base.BaseService;
 import io.restassured.response.Response;
 import models.request.UserProfileRequest;
 

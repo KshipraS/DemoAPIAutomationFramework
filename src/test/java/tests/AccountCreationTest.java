@@ -3,9 +3,9 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import base.AuthService;
 import io.restassured.response.Response;
 import models.request.SignUpRequest;
+import services.AuthService;
 
 public class AccountCreationTest 
 {

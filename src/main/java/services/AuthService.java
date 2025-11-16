@@ -1,7 +1,8 @@
-package base;
+package services;
 
 import java.util.HashMap;
 
+import base.BaseService;
 import io.restassured.response.Response;
 import models.request.LoginRequest;
 import models.request.SignUpRequest;
@@ -13,8 +14,8 @@ public class AuthService extends BaseService
 	
 	public Response login(LoginRequest loginRequest)
 	{
-		Response response=postRequest(loginRequest, BASE_PATH+"login");
-		return response;
+		return postRequest(loginRequest, BASE_PATH+"login");
+		
 	}
 	public Response signUp(SignUpRequest signUpRequest)
 	{

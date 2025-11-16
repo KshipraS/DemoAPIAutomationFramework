@@ -4,10 +4,10 @@ import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import base.AuthService;
 import io.restassured.response.Response;
 import models.request.LoginRequest;
 import models.response.LoginResponse;
+import services.AuthService;
 
 @Listeners(api.listeners.TestListener.class)
 public class LoginAPITest3 
@@ -20,7 +20,7 @@ public class LoginAPITest3
 		//Response response=authService.login("{\"username\": \"Kshipra\",\"password\": \"Kshipra123\"}");
 		Response response=authService.login(loginRequest);
 		
-		LoginResponse loginResponse=response.as(LoginResponse.class);  // JSON to Java object of my type, here my type is LoginResponse
+		LoginResponse loginResponse=response.as(LoginResponse.class);  // Deserialization: JSON to Java object of my type, here my type is LoginResponse
 		System.out.print(loginResponse.getToken());
 		System.out.print(response.asPrettyString());
 		
