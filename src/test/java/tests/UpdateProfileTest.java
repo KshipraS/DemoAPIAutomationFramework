@@ -7,7 +7,7 @@ import io.restassured.response.Response;
 import models.request.UserProfileRequest;
 import models.response.LoginResponse;
 import models.response.UserProfileResponse;
-import services.UserProfileManagementService;
+import services.UserManagementService;
 import util.Utility;
 
 public class UpdateProfileTest
@@ -17,7 +17,7 @@ public class UpdateProfileTest
 	{
 		LoginResponse loginResponse=new Utility().doLogin("Kshipra","Kshipra123");
 		
-		UserProfileManagementService userProfileManagementService=new UserProfileManagementService();
+		UserManagementService userProfileManagementService=new UserManagementService();
 		Response response=userProfileManagementService.getProfile(loginResponse.getToken());
 		System.out.println(response.asPrettyString());
 		

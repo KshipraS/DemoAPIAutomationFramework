@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import io.restassured.response.Response;
 import models.response.LoginResponse;
 import models.response.UserProfileResponse;
-import services.UserProfileManagementService;
+import services.UserManagementService;
 import util.Utility;
 
 public class GetProfileRequestTest 
@@ -16,7 +16,7 @@ public class GetProfileRequestTest
 		LoginResponse loginResponse=new Utility().doLogin("Kshipra","Kshipra123");
 		System.out.println(loginResponse.getToken());
 		
-		UserProfileManagementService userProfileManagementService=new UserProfileManagementService();
+		UserManagementService userProfileManagementService=new UserManagementService();
 		Response response=userProfileManagementService.getProfile(loginResponse.getToken());
 		System.out.println("Response of getProfile operation----"+response.asPrettyString());
 		UserProfileResponse userProfileResponse=response.as(UserProfileResponse.class);

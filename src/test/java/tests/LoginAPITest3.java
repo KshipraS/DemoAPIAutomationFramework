@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import io.restassured.response.Response;
 import models.request.LoginRequest;
 import models.response.LoginResponse;
-import services.AuthService;
+import services.AuthenticationService;
 
 @Listeners(api.listeners.TestListener.class)
 public class LoginAPITest3 
@@ -16,7 +16,7 @@ public class LoginAPITest3
 	public void loginTest()
 	{
 		LoginRequest loginRequest=new LoginRequest("Kshipra", "Kshipra123");
-		AuthService authService=new AuthService();
+		AuthenticationService authService=new AuthenticationService();
 		//Response response=authService.login("{\"username\": \"Kshipra\",\"password\": \"Kshipra123\"}");
 		Response response=authService.login(loginRequest);
 		

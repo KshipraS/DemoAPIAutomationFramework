@@ -4,7 +4,7 @@ import base.BaseService;
 import io.restassured.response.Response;
 import models.request.UserProfileRequest;
 
-public class UserProfileManagementService extends BaseService
+public class UserManagementService extends BaseService
 {
 	private static final String BASE_PATH="/api/users";
 	

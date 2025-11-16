@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
 import models.request.SignUpRequest;
-import services.AuthService;
+import services.AuthenticationService;
 
 public class AccountCreationTest 
 {
@@ -21,7 +21,7 @@ public class AccountCreationTest
 			.password("disha123")
 		.build();	
 		
-		AuthService authService=new AuthService();
+		AuthenticationService authService=new AuthenticationService();
 		Response response=authService.signUp(signUpRequest);
 		System.out.print(response.asPrettyString());
 		//Assert.assertEquals(response.asPrettyString(), "User registered successfully!");
