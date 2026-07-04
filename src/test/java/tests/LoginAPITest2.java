@@ -4,7 +4,7 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static io.restassured.RestAssured.*;	// static imports improve readability. ln 16 no longer needs RestAssured. call
+import static io.restassured.RestAssured.*;	// static imports improve readability. ln 16 & 17 no longer needs RestAssured. call
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -22,6 +22,6 @@ public class LoginAPITest2
 														+ "}");
 		Response response = requestSpecfication.post("api/auth/login");		// end point
 		System.out.print(response.asPrettyString());
-		Assert.assertEquals(response.getStatusCode(), 220);
+		Assert.assertEquals(response.getStatusCode(), 200);
 	}
 }

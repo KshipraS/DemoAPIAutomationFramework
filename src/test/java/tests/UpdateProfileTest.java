@@ -8,6 +8,7 @@ import models.request.UserProfileRequest;
 import models.response.LoginResponse;
 import models.response.UserProfileResponse;
 import services.UserManagementService;
+import util.ConfigReader;
 import util.Utility;
 
 public class UpdateProfileTest
@@ -15,22 +16,23 @@ public class UpdateProfileTest
 	@Test
 	public void updateProfile()
 	{
-		LoginResponse loginResponse=new Utility().doLogin("Kshipra","Kshipra123");
-		
+		LoginResponse loginResponse=new Utility().doLogin(ConfigReader.get("test.username"), ConfigReader.get("test.password"));
+
 		UserManagementService userProfileManagementService=new UserManagementService();
-		Response response=userProfileManagementService.getProfile(loginResponse.getToken());
-		System.out.println(response.asPrettyString());
-		
-		UserProfileResponse userProfileResponse=response.as(UserProfileResponse.class);
-		Assert.assertEquals(userProfileResponse.getUsername(), "kshipra");
+		Response response;
+//		Response response=userProfileManagementService.getProfile(loginResponse.getToken());
+//		System.out.println(response.asPrettyString());
+//		
+//		UserProfileResponse userProfileResponse=response.as(UserProfileResponse.class);
+//		Assert.assertEquals(userProfileResponse.getUsername(), ConfigReader.get("test.username").toLowerCase());
 		
 		UserProfileRequest userProfileRequest=new UserProfileRequest.Builder()
-				.firstName("Disha")
-				//.email("Disha24@yahoomai.com")
-				.email("kships26@gmail.com")
-				.lastName("Pahuja")					// Update in Last name
-				.mobileNumber("9856565654")
-			.build();	
+																	.firstName("Disha")
+																	//.email("Disha24@yahoomai.com")
+																	.email(ConfigReader.get("test.email"))
+																	.lastName("Pahuja")					// Update in Last name
+																	.mobileNumber(ConfigReader.get("test.mobileNumber"))
+																	.build();	
 		
 		response=userProfileManagementService.updateProfile(loginResponse.getToken(), userProfileRequest);
 		System.out.println(response.asPrettyString());

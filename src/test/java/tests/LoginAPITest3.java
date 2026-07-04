@@ -8,6 +8,7 @@ import io.restassured.response.Response;
 import models.request.LoginRequest;
 import models.response.LoginResponse;
 import services.AuthenticationService;
+import util.ConfigReader;
 
 @Listeners(api.listeners.TestListener.class)
 public class LoginAPITest3 
@@ -15,17 +16,18 @@ public class LoginAPITest3
 	@Test(description="Verify the Login")
 	public void loginTest()
 	{
-		LoginRequest loginRequest=new LoginRequest("Kshipra", "Kshipra123");
+		LoginRequest loginRequest=new LoginRequest(ConfigReader.get("test.username"), ConfigReader.get("test.password"));
 		AuthenticationService authService=new AuthenticationService();
 		//Response response=authService.login("{\"username\": \"Kshipra\",\"password\": \"Kshipra123\"}");
 		Response response=authService.login(loginRequest);
 		
 		LoginResponse loginResponse=response.as(LoginResponse.class);  // Deserialization: JSON to Java object of my type, here my type is LoginResponse
+		
 		System.out.print(loginResponse.getToken());
 		System.out.print(response.asPrettyString());
 		
-		Assert.assertTrue(loginResponse.getToken()!=null);
-		Assert.assertEquals(loginResponse.getEmail(),"kships26@gmail.com");
-		Assert.assertEquals(loginResponse.getId(),3096);
+		Assert.assertTrue(loginResponse.getToken()!=null, "Token is not null");
+		Assert.assertEquals(loginResponse.getUsername(), ConfigReader.get("test.username").toLowerCase());
+		Assert.assertEquals(loginResponse.getId(), Integer.parseInt(ConfigReader.get("test.userId"))); // This is ideally not needed assertion
 	}
 }

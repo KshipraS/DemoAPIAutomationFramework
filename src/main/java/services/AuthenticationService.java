@@ -14,8 +14,7 @@ public class AuthenticationService extends BaseService
 	
 	public Response login(LoginRequest loginRequest)
 	{
-		return postRequest(loginRequest, BASE_PATH+"login");
-		
+		return postRequest(loginRequest, BASE_PATH+"login");	
 	}
 	public Response signUp(SignUpRequest signUpRequest)
 	{
@@ -27,5 +26,4 @@ public class AuthenticationService extends BaseService
 		forgotPswdPayload.put("email", emailAddress);
 		return postRequest(forgotPswdPayload, BASE_PATH+"forgot-password");
 	}
-	
 }

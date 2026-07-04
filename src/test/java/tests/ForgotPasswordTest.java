@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
 import services.AuthenticationService;
+import util.ConfigReader;
 
 public class ForgotPasswordTest 
 {
@@ -11,7 +12,7 @@ public class ForgotPasswordTest
 	public void forgotPasswordTest()
 	{
 		AuthenticationService authService=new AuthenticationService();
-		Response response=authService.forgotPassword("kships@gmail.com");
+		Response response=authService.forgotPassword(ConfigReader.get("test.email"));
 		System.out.print(response.asPrettyString());
 	}
 }
