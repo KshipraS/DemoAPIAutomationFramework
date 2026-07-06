@@ -16,7 +16,7 @@ public class LoggingFilter implements Filter
 	public Response filter(FilterableRequestSpecification requestSpec, FilterableResponseSpecification responseSpec, FilterContext ctx) 
 	{
 		logRequest(requestSpec);		// Log Request
-		Response response=ctx.next(requestSpec, responseSpec);	// Get Response
+		Response response=ctx.next(requestSpec, responseSpec);	// Get Response (Request is going to be executed)
 		logResponse(response);			// Log Response
 		return response;
 	}

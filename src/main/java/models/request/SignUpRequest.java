@@ -3,7 +3,10 @@
  * 2 benefits of Builder class - (1) we do not need to give params in the same order as constr. (2) it is useful 
  * and the code look cleaner when we have 10 or 15 or 20 params
  * Another imp interview ques is that can constructor of this class be private. Ans is Yes(when we create objects in the 
- * same class which is an ex of Singleton class). this ensures that object creation happens through builder class only
+ * same class which is an ex of Singleton class). this ensures that object creation happens through builder class only.
+ * a non-static inner class cannot be instantiated without an existing instance of the outer class. Third very imp point is if your Builder class 
+ * were not static, you would be trapped in a logical contradiction ("chicken-and-egg" problem) that completely ruins the purpose of the pattern.
+ * Hence, it has to be static only.
  */
 
 package models.request;
@@ -30,39 +33,39 @@ public class SignUpRequest
 	public String getUsername() {
 		return username;
 	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
+//	public void setUsername(String username) {
+//		this.username = username;
+//	}
 	public String getPassword() {
 		return password;
 	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+//	public void setPassword(String password) {
+//		this.password = password;
+//	}
 	public String getEmail() {
 		return email;
 	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
+//	public void setEmail(String email) {
+//		this.email = email;
+//	}
 	public String getFirstName() {
 		return firstName;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+//	public void setFirstName(String firstName) {
+//		this.firstName = firstName;
+//	}
 	public String getLastName() {
 		return lastName;
 	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+//	public void setLastName(String lastName) {
+//		this.lastName = lastName;
+//	}
 	public String getMobileNumber() {
 		return mobileNumber;
 	}
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
-	}
+//	public void setMobileNumber(String mobileNumber) {
+//		this.mobileNumber = mobileNumber;
+//	}
 	@Override
 	public String toString() {
 		return "SignUpRequest [username=" + username + ", password=" + password + ", email=" + email + ", firstName="
@@ -82,7 +85,6 @@ public class SignUpRequest
 			this.username = username;
 			return this;
 		}
-		
 		public Builder password(String password) {
 			this.password = password;
 			return this;

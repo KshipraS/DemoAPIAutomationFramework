@@ -26,13 +26,13 @@ public class UpdateProfileTest
 //		UserProfileResponse userProfileResponse=response.as(UserProfileResponse.class);
 //		Assert.assertEquals(userProfileResponse.getUsername(), ConfigReader.get("test.username").toLowerCase());
 		
-		UserProfileRequest userProfileRequest=new UserProfileRequest.Builder()
-																	.firstName("Disha")
-																	//.email("Disha24@yahoomai.com")
-																	.email(ConfigReader.get("test.email"))
+		UserProfileRequest userProfileRequest=new UserProfileRequest.Builder()   // Java creates a brand new, empty Builder instance. All fields are null
+																	.firstName("Disha")  // The builder sets its own firstName field to "Disha".It returns itself so you can keep typing.
+																	.email(ConfigReader.get("test.email"))   // The builder sets its own email field to "kships26@gmail.com".It returns itself again.
 																	.lastName("Pahuja")					// Update in Last name
 																	.mobileNumber(ConfigReader.get("test.mobileNumber"))
-																	.build();	
+																	.build();	/* The builder triggers new UserProfileRequest(this.email, this.firstName, lastName, mobileNumber).
+																				Your target object is securely created and assigned to your user variable.*/
 		
 		response=userProfileManagementService.updateProfile(loginResponse.getToken(), userProfileRequest);
 		System.out.println(response.asPrettyString());

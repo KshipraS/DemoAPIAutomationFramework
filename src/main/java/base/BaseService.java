@@ -1,7 +1,8 @@
 /**
- * This class acts as a wrapper for RestAssured. It is responsible for providing Base URI to all classes as all service classes are extending this class, 
- * creating the Request and handling the Response.
+ * This class acts as a wrapper for RestAssured. It is responsible for providing Base URI to all classes as all service classes are extending 
+ * this class, creating the Request and handling the Response.
  * Swagger: http://64.227.160.186:8080/swagger-ui/index.html
+ * Swagger my localhost: http://localhost:8080/swagger-ui
  */
 
 package base;
