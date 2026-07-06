@@ -1,0 +1,15 @@
+{
+  "name": "banking-api-mock",
+  "version": "2.0.0",
+  "description": "Full local replica of the Banking API for offline test runs",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "swagger-ui-express": "^5.0.1",
+    "pdfkit": "^0.15.0",
+    "exceljs": "^4.4.0"
+  }
+}
